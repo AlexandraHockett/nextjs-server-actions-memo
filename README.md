@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+- Server side actions are mainly, for now, used to perform mutations from client side as they make a POST Request
 
-## Getting Started
+-If you want to call server Action from the client side, you'll have to create a separate file with "use server" written at the start of the file.
 
-First, run the development server:
+// lib/action.ts
+"use server"
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+export async function mutate(){}
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- To call Server action from the server side you can just write "use server" at the top of the function body.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+async function handleSubmit() {
+    "use server"
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ....
+}
 
-## Learn More
+or a deeper dive into Server Actions in Next.js, check out this: https://www.youtube.com/watch?v=FKZAXFjxlJI
 
-To learn more about Next.js, take a look at the following resources:
+Server Actions Memo Project
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project demonstrates the use of Server Side Actions in Next.js 15 for handling server-side operations efficiently.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Key Features
+Server Side Actions: Used primarily for performing mutations via POST requests.
+Client-Server Integration: Examples of calling Server Actions from both client and server contexts.
+Secure and Performant: Implements best practices for security and efficient data handling.
